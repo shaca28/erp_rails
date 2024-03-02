@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  modelo: MyString
+  voltagem: MyString
+  categoria: one
+  descricao: MyText
+  preco_compra: 9.99
+  cod_interno: MyString
+
+two:
+  nome: MyString
+  modelo: MyString
+  voltagem: MyString
+  categoria: two
+  descricao: MyText
+  preco_compra: 9.99
+  cod_interno: MyString

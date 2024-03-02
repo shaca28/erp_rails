@@ -1,0 +1,49 @@
+Table Categorias {
+  id bigint [pk, increment]
+  nome varchar [not null]
+  created_at timestamp 
+}
+
+Table Produtos {
+  id bigint [pk, increment]
+  nome varchar [not null]
+  modelo varchar [not null]
+  voltagem varchar [not null]
+  categoria_id bigint [not null] 
+  descricao varchar [not null]
+  preco_compra decimal [not null]
+  cod_interno varchar [not null]
+  created_at timestamp
+}
+
+
+Ref: Produtos.categoria_id > Categorias.id
+
+Table Estoque {
+  id bigint [pk, increment]
+  produto_id bigint [not null]
+  quantidade integer [not null]
+  quantidade_min integer [not null]
+  created_at timestamp
+}
+
+Ref: Estoque.produto_id > Produtos.id
+
+
+Table Vendas {
+  id bigint [pk, increment]
+  canal_venda varchar [not null]
+  quantidade_vendida integer [not null]
+  produtos_id bigint [not null]
+}
+Ref: Vendas.produtos_id > Produtos.id
+
+Table Devolucoes {
+  id bigint [pk, increment]
+  motivo varchar [not null]
+  devolucao_ok boolean [not null]
+  produtos_id bigint [not null]
+}
+Ref: Devolucoes.produtos_id > Produtos.id
+
+

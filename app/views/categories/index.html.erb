@@ -1,0 +1,38 @@
+    
+    <div class="conteudo_titulo">
+        <h1>Categorias</h1>
+    </div>
+    <hr/>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                    <!-- Se você tiver mais colunas, adicione aqui -->
+                </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td>
+                            <%= category.name %>
+                        </td>
+                        <td>
+                            <%= link_to 'Editar', edit_category_path(category), class: 'btn btn-primary' %>
+                        </td>
+                        <td>
+                            <%= link_to 'Excluir', category, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta categoria?' }, class: 'btn btn-danger' %>
+                        </td>
+                        
+                        <!-- Se você tiver mais colunas, adicione aqui -->
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to 'Nova Categoria', new_category_path, class: 'btn btn-primary' %>
+    </div>
+
+

@@ -1,0 +1,56 @@
+<div class="conteudo">      
+    <div class="conteudo_titulo">
+        <h1>Novo Produto</h1>
+    </div>
+    <hr/>
+    <br>
+    <% if notice %>
+        <div class="alert alert-success" role="alert">
+            <%= notice %>
+        </div>
+    <% end %> 
+
+    <div class="conteudo_infos mx-auto" style="width: 300px;">
+        <%= form_with(model: @product, local: true) do |form| %>
+            <% if @product.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@product.errors.count, "erro") %> ocorreu ao salvar o produto:</h2>
+                    <ul>
+                    <% @product.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <div class="mb-3">
+                <%= form.label :nome, class: "form-label" %>
+                <%= form.text_field :nome, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :modelo %>
+                <%= form.text_field :modelo, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :voltagem %>
+                <%= form.select :voltagem, ['110v', '220v'], class: "form-select" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :category_id %>
+                <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: 'Selecione uma categoria' }, class: "form-select" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :descricao %>
+                <%= form.text_area :descricao, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :cod_interno %>
+                <%= form.text_field :cod_interno, class: "form-control" %>
+            </div>
+            <div class="mt-3">
+                <%= form.submit 'Salvar', class: "btn btn-primary" %>
+                <%= link_to 'Voltar', products_path, class: "btn btn-danger" %>
+            </div>
+        <% end %>
+        
+    </div>  
+</div>

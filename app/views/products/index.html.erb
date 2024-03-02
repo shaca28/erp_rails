@@ -1,0 +1,39 @@
+<div class="conteudo_titulo">
+        <h1>Produtos</h1>
+    </div>
+    <hr/>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                    <!-- Se você tiver mais colunas, adicione aqui -->
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |product| %>
+                    <tr>
+                        <td>
+                            <%= product.nome %>
+                        </td>
+                        <td>
+                            <%= product.category.name %>
+                        </td>
+                        <td>
+                            <%= link_to 'Editar', edit_product_path(product), class: 'btn btn-primary' %>
+                        </td>
+                        <td>
+                            <%= link_to 'Excluir', product, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta categoria?' }, class: 'btn btn-danger' %>
+                        </td>
+                        
+                        <!-- Se você tiver mais colunas, adicione aqui -->
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to 'Novo produto', new_product_path, class: 'btn btn-primary' %>
+    </div>
