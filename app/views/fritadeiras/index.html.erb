@@ -1,0 +1,39 @@
+<div class="conteudo_titulo">
+    <h1>Todas fritadeiras</h1>
+</div>
+<hr/>
+<br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>codigo interno</th>
+                <th>voltagem</th>
+                <th>categoria</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+                <!-- Se você tiver mais colunas, adicione aqui -->
+            </tr>
+        </thead>
+        <tbody>
+            <% @fritadeiras.each do |fritadeira| %>
+                <tr>
+                    <td>
+                        <%= fritadeira.cod_interno %>
+                    </td>               
+                    <td>
+                        <%= fritadeira.voltagem %>
+                    </td>
+                    <td>
+                        <%= fritadeira.category.name %>
+                    </td>
+                    <td><%= link_to 'Editar', edit_fritadeira_path(fritadeira), class: 'btn btn-primary' %></td>
+                    <td><%= link_to 'Excluir', fritadeira_path(fritadeira), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger' %></td>
+                    
+                    
+                    <!-- Se você tiver mais colunas, adicione aqui -->
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'Nova Fritadeira', new_fritadeira_path, class: 'btn btn-primary' %>

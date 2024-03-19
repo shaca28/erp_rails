@@ -1,6 +1,53 @@
-<!-- Conteúdo -->
-<div class="conteudo">
-    <div class="conteudo_titulo">  
-        <h1>Dashboard</h1>
-    </div>    
+<div class="conteudo_titulo">  
+    <h1>Dashboard</h1>
 </div>
+<hr/>
+<br>
+<ul>
+<div class="container">
+    <table class="table">
+    <h2 class="titulo-tabela">Fritadeiras com estoque baixo</h2>
+        <thead>
+            <tr>
+                <th>Código Interno</th>
+                <th>Quantidade em Estoque</th>
+                <th>Quantidade Mínima</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @estoques_em_baixa.each do |estoque| %>
+                <tr>
+                    <td><%= estoque.fritadeira.cod_interno %> - <%= estoque.fritadeira.voltagem %></td>                          
+                    <td><%= estoque.q_atual %></td>
+                    <td><%= estoque.q_min %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<hr/>
+<br>
+
+<table class="table">
+<h2 class="titulo-tabela">Fritadeiras mais vendidas</h2>
+  <thead>
+    <tr>
+      <th>Modelo de Fritadeira</th>
+      <th>Quantidade de Vendas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vendas_por_modelo_e_voltagem.each do |fritadeira_id, quantidade| %>
+      <% fritadeira = Fritadeira.find(fritadeira_id) %>
+      <tr>
+        <td><%= fritadeira.cod_interno %> - <%= fritadeira.voltagem %></td>
+        <td><%= quantidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr/>
+<br>
+
+

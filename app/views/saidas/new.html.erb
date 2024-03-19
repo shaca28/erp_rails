@@ -1,0 +1,37 @@
+<div class="conteudo_titulo">  
+    <h1>Remover Produto ao estoque</h1>
+</div>
+<hr/>
+<br>
+
+<div class="conteudo_infos mx-auto" style="width: 300px;">
+    <%= form_with(model: @saida, url: saidas_path, local: true) do |form| %>
+        <div class="mb-3">
+            <h3>Modelo: <%= @fritadeira_info %></h3>
+        </div>
+        
+        <div class="mb-3">
+            <%= form.label :q_remover, "Quantidade a Remover", class: "form-label" %>
+            <%= form.number_field :q_remover, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.label :origem_saida, class: "form-label" %>
+            <%= form.text_field :origem_saida, class: "form-control" %>
+        </div>    
+        
+        <div class="mb-3">
+            <%= form.label :date, class: "form-label" %>
+            <%= form.date_field :date, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.hidden_field :estoque_id, value: @estoque.id, class: "form-label" %>
+            <%= form.hidden_field :fritadeira_id, value: @fritadeira.id, class: "form-control" %>
+        </div>    
+        
+        <div class="mt-3">
+            <%= form.submit 'Salvar', class: "btn btn-primary" %>
+        </div>    
+    <% end %>
+</div>    

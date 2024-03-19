@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantidade_adicionada: 1
+  origem_entrada: MyString
+  estoque: one
+  fritadeira: one
+
+two:
+  quantidade_adicionada: 1
+  origem_entrada: MyString
+  estoque: two
+  fritadeira: two

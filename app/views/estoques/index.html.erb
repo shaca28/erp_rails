@@ -1,0 +1,37 @@
+<div class="conteudo_titulo">  
+    <h1>Estoque</h1>
+</div>
+<hr/>
+<br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código Interno</th>
+                <th>Voltagem</th>
+                <th>Quantidade em Estoque</th>
+                <th>Quantidade Mínima</th>
+                <th>Editar</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Excluir do estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @estoques.each do |estoque| %>
+                <tr>
+                    <td><%= estoque.fritadeira.cod_interno %></td>                          
+                    <td><%= estoque.fritadeira.voltagem %></td>
+                    <td><%= estoque.q_atual %></td>
+                    <td><%= estoque.q_min %></td>
+                    <td><%= link_to 'Editar', edit_estoque_path(estoque), class: 'btn btn-primary' %></td>
+                    <td><%= link_to 'Entrada', new_entrada_path(estoque_id: estoque.id), class: 'btn btn-success' %></td>
+                    <td><%= link_to 'Saída', new_saida_path(estoque_id: estoque.id), class: 'btn btn-warning' %></td>
+                    <td><%= link_to 'Excluir Dados do Estoque', estoque, method: :delete, data: { confirm: 'Tem certeza que deseja excluir este estoque?' }, class: 'btn btn-danger' %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'Adicionar produto ao estoque', new_estoque_path, class: 'btn btn-primary' %> 
+</div>
+

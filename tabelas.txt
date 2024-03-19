@@ -47,3 +47,5 @@ Table Devolucoes {
 Ref: Devolucoes.produtos_id > Produtos.id
 
 
+rails generate model Saida q_remover:integer origem_saida:string estoque:references fritadeira:references
+rails generate controller Saidas new create

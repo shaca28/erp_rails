@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  modelo: MyString
+  cod_interno: MyString
+  capacidade: 1
+  voltagem: 1
+  category: one
+
+two:
+  nome: MyString
+  modelo: MyString
+  cod_interno: MyString
+  capacidade: 1
+  voltagem: 1
+  category: two

@@ -42,3 +42,38 @@ body {
     margin-top: 20px;
     display: flex;
 }
+
+
+
+.submenu {
+  display: none; /* Oculta todos os submenus por padrão */
+}
+
+.show {
+  display: block !important; /* Mostra o submenu quando a classe "show" é aplicada */
+}
+
+.expandable {
+  cursor: pointer;
+}
+
+
+
+.table tbody tr:nth-child(odd) td {
+  background-color: #A3CEEF; /* Cor de fundo para linhas ímpares */
+}
+
+.table tbody tr:nth-child(even) td {
+  background-color: #ffffff; /* Cor de fundo para linhas pares */
+}
+
+/* Centraliza o texto nas células da tabela */
+.table th, .table td {
+  text-align: center;
+  border: solid;
+}
+
+.titulo-tabela {
+  text-align: center;
+}
+

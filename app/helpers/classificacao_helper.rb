@@ -1,0 +1,2 @@
+module ClassificacaoHelper
+end
